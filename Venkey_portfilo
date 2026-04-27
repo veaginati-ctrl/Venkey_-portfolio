@@ -1,0 +1,189 @@
+import React, { useState, useEffect } from "react";
+
+export default function App() {
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    document.body.style.margin = 0;
+    document.body.style.fontFamily = "'DM Sans', sans-serif";
+    document.body.style.background = dark ? "#0f0a1f" : "#faf5ff";
+    document.body.style.color = dark ? "#e9d5ff" : "#1e1b4b";
+  }, [dark]);
+
+  const section = {
+    padding: "80px 20px",
+    maxWidth: "1100px",
+    margin: "auto",
+  };
+
+  const card = {
+    padding: "24px",
+    borderRadius: "20px",
+    background: dark
+      ? "linear-gradient(145deg,#1e1b4b,#0f0a1f)"
+      : "#ffffff",
+    boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
+    transition: "0.4s",
+  };
+
+  const accent = "#a855f7";
+
+  return (
+    <>
+      {/* Navbar */}
+      <nav
+        style={{
+          position: "sticky",
+          top: 0,
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "15px 25px",
+          backdropFilter: "blur(12px)",
+          zIndex: 1000,
+        }}
+      >
+        <h3 style={{ color: accent }}>Venky</h3>
+        <button
+          onClick={() => setDark(!dark)}
+          style={{
+            background: accent,
+            border: "none",
+            borderRadius: "20px",
+            padding: "6px 12px",
+            cursor: "pointer",
+            color: "#fff",
+          }}
+        >
+          {dark ? "Light" : "Dark"}
+        </button>
+      </nav>
+
+      {/* Hero */}
+      <section style={{ ...section, textAlign: "center" }}>
+        <img
+          src="/your-photo.jpg"
+          alt="profile"
+          style={{
+            width: "130px",
+            borderRadius: "50%",
+            border: `3px solid ${accent}`,
+          }}
+        />
+        <h1 style={{ fontSize: "2.7rem", marginTop: "15px" }}>
+          Venky Veaginati
+        </h1>
+        <p style={{ opacity: 0.8 }}>
+          Aspiring Data Scientist | NLP & Deep Learning Enthusiast
+        </p>
+      </section>
+
+      {/* About */}
+      <section style={section}>
+        <h2 style={{ color: accent }}>About</h2>
+        <p>
+          MCA graduate from Audisankara College of Engineering and Technology
+          with strong interest in Data Science, NLP, and Deep Learning. Passionate
+          about building intelligent systems and solving real-world problems using data.
+        </p>
+      </section>
+
+      {/* Skills */}
+      <section style={section}>
+        <h2 style={{ color: accent }}>Skills</h2>
+
+        {[
+          ["Python", 90],
+          ["Machine Learning", 85],
+          ["NLP", 80],
+          ["Deep Learning", 75],
+          ["SQL", 70],
+        ].map(([skill, level], i) => (
+          <div key={i} style={{ marginBottom: "15px" }}>
+            <span>{skill}</span>
+            <div
+              style={{
+                height: "8px",
+                background: "#2e1065",
+                borderRadius: "10px",
+                marginTop: "5px",
+              }}
+            >
+              <div
+                style={{
+                  width: `${level}%`,
+                  height: "8px",
+                  background: accent,
+                  borderRadius: "10px",
+                  transition: "1s",
+                }}
+              />
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Experience */}
+      <section style={section}>
+        <h2 style={{ color: accent }}>Experience</h2>
+        <div style={card}>
+          <h3>Data Science Intern — Rubex</h3>
+          <p>June 2025 – Feb 2026</p>
+          <ul>
+            <li>Developed ML models for predictive analysis</li>
+            <li>Performed data preprocessing and visualization</li>
+            <li>Worked on real-world datasets using Python & NLP</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section style={section}>
+        <h2 style={{ color: accent }}>Projects</h2>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+            gap: "20px",
+          }}
+        >
+          <div style={card}>
+            <h3>Customer Churn Prediction</h3>
+            <p>
+              Built ML model to predict customer retention using real-world data.
+            </p>
+          </div>
+
+          <div style={card}>
+            <h3>Student Details Extraction</h3>
+            <p>
+              NLP-based system to extract structured data from transcripts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section style={section}>
+        <h2 style={{ color: accent }}>Education</h2>
+        <p>
+          MCA (2023 – 2025) <br />
+          Audisankara College of Engineering and Technology
+        </p>
+      </section>
+
+      {/* Contact */}
+      <section style={section}>
+        <h2 style={{ color: accent }}>Contact</h2>
+        <p>Email: veaginati@gmail.com</p>
+        <p>GitHub: github.com/veaginati-ctrl</p>
+        <p>LinkedIn: linkedin.com/in/veginati-venkateswarlu-079ba322b</p>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ textAlign: "center", padding: "20px", opacity: 0.6 }}>
+        © 2026 Venky Veaginati
+      </footer>
+    </>
+  );
+}
