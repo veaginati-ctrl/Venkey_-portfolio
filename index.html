@@ -1,0 +1,367 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venky Veaginati | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #a855f7;
+            --background: #0f0a1f;
+            --text: #e9d5ff;
+            --card: linear-gradient(145deg, #1e1b4b, #0f0a1f);
+            --bar: #2e1065;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+            line-height: 1.7;
+        }
+
+        body.light {
+            --background: #faf5ff;
+            --text: #1e1b4b;
+            --card: #ffffff;
+            --bar: #e9d5ff;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: var(--background);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        nav h3 {
+            color: var(--accent);
+            font-size: 24px;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 18px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 75px 25px;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.3;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 30px;
+        }
+
+        p {
+            margin: 12px 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-top: 20px;
+        }
+
+        .hero p {
+            opacity: 0.8;
+        }
+
+        .card {
+            padding: 25px;
+            border-radius: 20px;
+            background: var(--card);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--bar);
+            border-radius: 10px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            width: 0;
+            background: var(--accent);
+            border-radius: 10px;
+            animation: fillBar 1.2s ease forwards;
+        }
+
+        @keyframes fillBar {
+            to { width: var(--level); }
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        ul {
+            padding-left: 22px;
+            margin-top: 12px;
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            opacity: 0.7;
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 14px 20px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h3>Venky</h3>
+        <button id="themeToggle">Light Mode</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="your-photo.jpg" alt="Venky's Profile Photo"
+             class="profile-photo">
+
+        <h1>Venky Veaginati</h1>
+        <p>Aspiring Data Scientist | NLP &amp; Deep Learning Enthusiast</p>
+    </section>
+
+    <!-- About -->
+    <section>
+        <h2>About Me</h2>
+        <p>
+            MCA graduate from Audisankara College of Engineering and
+            Technology with a strong interest in Data Science, NLP,
+            and Deep Learning. Passionate about building intelligent
+            systems and solving real-world problems using data.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+        <h2>Skills</h2>
+
+        <div class="skill">
+            <span>Python</span>
+            <div class="skill-bar">
+                <div class="skill-level" style="--level: 90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <span>Machine Learning</span>
+            <div class="skill-bar">
+                <div class="skill-level" style="--level: 85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <span>NLP</span>
+            <div class="skill-bar">
+                <div class="skill-level" style="--level: 80%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <span>Deep Learning</span>
+            <div class="skill-bar">
+                <div class="skill-level" style="--level: 75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <span>SQL</span>
+            <div class="skill-bar">
+                <div class="skill-level" style="--level: 70%"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+        <h2>Experience</h2>
+
+        <div class="card">
+            <h3>Data Science Intern — Rubixe</h3>
+            <p>June 2025 – February 2026</p>
+            <ul>
+                <li>Developed machine learning models for predictive analysis.</li>
+                <li>Performed data preprocessing and visualization.</li>
+                <li>Worked with real-world datasets using Python and NLP.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+        <h2>Projects</h2>
+
+        <div class="project-grid">
+            <div class="card">
+                <h3>Customer Churn Prediction</h3>
+                <p>
+                    Built a machine learning model to predict customer
+                    churn and support customer retention.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Student Details Extraction</h3>
+                <p>
+                    Developed an NLP-based system to extract structured
+                    information from student transcripts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <h2>Education</h2>
+
+        <div class="card">
+            <h3>Master of Computer Applications (MCA)</h3>
+            <p>2023 – 2025</p>
+            <p>Audisankara College of Engineering and Technology</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Contact Me</h2>
+
+        <p>
+            Email:
+            <a href="mailto:veaginati@gmail.com">
+                veginati@gmail.com
+            </a>
+        </p>
+
+        <p>
+            GitHub:
+            <a href="https://github.com/veaginati-ctrl"
+               target="_blank" rel="noopener noreferrer">
+                github.com/veaginati-ctrl
+            </a>
+        </p>
+
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/veginati-venkateswarlu-079ba322b/"
+               target="_blank" rel="noopener noreferrer">
+                View LinkedIn Profile
+            </a>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Venky Veaginati. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dark/Light Mode -->
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+
+        themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("light");
+
+            const isLight = document.body.classList.contains("light");
+
+            themeToggle.textContent = isLight
+                ? "Dark Mode"
+                : "Light Mode";
+        });
+    </script>
+
+</body>
+</html>
+```
